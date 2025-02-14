@@ -160,7 +160,6 @@ html, body{
     position: fixed;
     z-index: 99;
     border-radius: 50%;
-    mix-blend-mode: difference;
     border: 2px solid white;
 }
 
