@@ -11,41 +11,18 @@ const page2 = document.querySelector("#page2");
 const page3 = document.querySelector("#page3");
 const cursor = document.querySelector("#cursor");
 
-page1.addEventListener("mousemove", function(dets){
+document.addEventListener("mousemove", function(dets){
     gsap.to(cursor,{
         x: dets.x,
         y: dets.y,
-        duration: 0.2,
-        ease: "power.out"
-    })
-});
-page2.addEventListener("mousemove", function(dets){
-    gsap.to(cursor,{
-        x: dets.x,
-        y: dets.y,
-        duration: 0.2,
-        ease: "power.out"
-    })
-});
-page3.addEventListener("mousemove", function(dets){
-    gsap.to(cursor,{
-        x: dets.x,
-        y: dets.y,
-        duration: 0.2,
-        ease: "power.out"
+        duration: 0.5,
+        ease: "slow.out"
     })
 });
 
 let mm = gsap.matchMedia();
 
 mm.add("(min-width: 800px)", () => {   // Desktop GSAP Code
-    const lenis = new Lenis({    // Lenis Code
-        autoRaf: true,
-    });
-    
-    lenis.on('scroll', (e) => {
-        console.log(e);
-    });
     
     gsap.to("#page2", {
         backgroundColor: "#F72C5B",
@@ -182,17 +159,15 @@ mm.add("(min-width: 800px)", () => {   // Desktop GSAP Code
     const heading1 = document.querySelectorAll("#heading1 span"); 
     
     gsap.from(heading2,{
-        y: "-20%",
+        y: 60,
         opacity: 0,
-        duration: 2,
-        delay: 1,
-        stagger: 1,
+        stagger: 0.5,
         ease: "power2.out",
         scrollTrigger:{
             trigger:"#page2",
             scroller:"body",
-            start:"top center",
-            end:"bottom center",
+            start:"top 10%",
+            end:"bottom bottom",
             scrub: 2
         }
     });
@@ -224,13 +199,6 @@ mm.add("(min-width: 800px)", () => {   // Desktop GSAP Code
 });
 
 mm.add("(max-width: 799px)", () => {   // Mobile GSAP Code
-    const lenis = new Lenis({    // Lenis Code
-        autoRaf: true,
-    });
-    
-    lenis.on('scroll', (e) => {
-        console.log(e);
-    });
        
     gsap.to("#page2", {
         backgroundColor: "#F72C5B",
